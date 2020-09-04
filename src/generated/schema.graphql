@@ -1,0 +1,45 @@
+schema {
+  query: RootQuery
+  mutation: RootMutation
+}
+
+type RootQuery {
+  users(id: String, search: String): [UserQuery]
+}
+
+type UserQuery {
+  metadata: UserMetadataQuery
+}
+
+type UserMetadataQuery {
+  fullName: String
+}
+
+type RootMutation {
+  userPatch(id: String!, metadata: UserPatchMutation): UserPatch
+  userPost(metadata: UserPostMutation!): UserPost
+}
+
+type UserPatch {
+  metadata: UserMetadataPatch
+}
+
+type UserMetadataPatch {
+  fullName: String
+}
+
+input UserPatchMutation {
+  fullName: String
+}
+
+type UserPost {
+  metadata: UserMetadataPost
+}
+
+type UserMetadataPost {
+  fullName: String
+}
+
+input UserPostMutation {
+  fullName: String
+}

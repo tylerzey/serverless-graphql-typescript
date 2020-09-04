@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "preserveConstEnums": true,
+    "downlevelIteration": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    "allowJs": false
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "neoj4-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "tylerzey",
+  "license": "MIT",
+  "scripts": {
+    "generate-types": "graphql-codegen --config codegen.yml",
+    "generate-schema": "npx ts-node ./src/common/writeGraphQLSchema && yarn generate-types",
+    "lint": "eslint . --ext .ts --quiet --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn generate-schema && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "1.17.8",
+    "@graphql-codegen/introspection": "1.17.8",
+    "@graphql-codegen/typescript": "^1.17.9",
+    "@graphql-codegen/typescript-resolvers": "1.17.8",
+    "@types/aws-lambda": "^8.10.61",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "aws-sdk": "^2.746.0",
+    "eslint": "^7.8.1",
+    "eslint-plugin-jest": "^24.0.0",
+    "eslint-plugin-jest-formatting": "^2.0.0",
+    "eslint-plugin-require-path-exists": "^1.1.9",
+    "eslint-plugin-security": "^1.4.0",
+    "husky": "^4.2.5",
+    "jest": "^26.4.2",
+    "lint-staged": "^10.3.0",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.6",
+    "graphql": "^15.3.0",
+    "prettier": "^2.1.1"
+  }
+}
